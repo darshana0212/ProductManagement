@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ProductManagement.Data;
+﻿using ProductManagement.Data;
 
 namespace ProductManagement.Service
 {

@@ -3,9 +3,7 @@
 namespace ProductManagement.Data
 {
     public class Product
-
     {
-
         public Product(string code, decimal price, string description)
         {
             Code = code;
@@ -18,8 +16,5 @@ namespace ProductManagement.Data
         public decimal Price { get; private set; }
 
         public string Description { get; private set; }
-
-
-
     }
 }
