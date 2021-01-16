@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using ProductManagement.Service;
 
 namespace ProductManagement.Api
@@ -20,6 +21,7 @@ namespace ProductManagement.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            AddSwagger(services);
             services.AddScoped<IProductQueryService,ProductQueryService>();
         }
 
@@ -31,6 +33,13 @@ namespace ProductManagement.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Product Management API");
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -41,6 +50,31 @@ namespace ProductManagement.Api
             {
                 endpoints.MapControllers();
             });
+        }
+
+
+        private IServiceCollection AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc(
+                    "v1",
+                    new OpenApiInfo
+                    {
+                        Title = "Product Management Api",
+                        Version = "v1",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Darshana Bansal",
+                            Email = "darshana0212@gmail.com"
+                        }
+                    });
+
+                options.DescribeAllParametersInCamelCase();
+
+             });
+
+            return services;
         }
     }
 }
