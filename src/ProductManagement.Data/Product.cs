@@ -6,20 +6,13 @@ namespace ProductManagement.Data
 {
     public class Product
     {
-        public Product(string code, decimal price, string description)
-        {
-            Code = code;
-            Price = price;
-            Description = description;
-        }
-
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
-        public string Code { get; private set; }
+        public string Code { get; set; }
 
-        public decimal Price { get; private set; }
+        public decimal Price { get; set; }
 
-        public string Description { get; private set; }
+        public string Description { get; set; }
     }
 }

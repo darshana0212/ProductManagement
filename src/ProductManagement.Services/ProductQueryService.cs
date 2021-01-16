@@ -1,9 +1,20 @@
 ﻿using ProductManagement.Data;
+using ProductManagement.Data.Repository;
 
 namespace ProductManagement.Service
 {
     public class ProductQueryService : IProductQueryService
     {
-        public Product GetProduct() => new Product("code1", 10, "code2");
+        private readonly IProductRepository _productRepository;
+        public ProductQueryService(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
+        public Product GetProduct(int id)
+        {
+            return _productRepository.GetProduct(id);
+        }
+
     }
 }
