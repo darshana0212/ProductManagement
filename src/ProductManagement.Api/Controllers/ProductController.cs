@@ -8,11 +8,18 @@ namespace ProductManagement.Api.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        private readonly IProductQueryService _productQueryService;
+
+        public ProductController(IProductQueryService productQueryService)
+        {
+            _productQueryService = productQueryService;
+        }
+
         [HttpGet]
         public Product GetData()
         {
-            var productCommandService = new ProductCommandService();
-            return productCommandService.GetProduct();
+           var productCommandService = new ProductQueryService();
+           return _productQueryService.GetProduct();
         }
     }
 }

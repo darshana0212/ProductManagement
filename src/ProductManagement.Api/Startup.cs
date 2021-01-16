@@ -20,7 +20,7 @@ namespace ProductManagement.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IProductCommandService,ProductCommandService>();
+            services.AddScoped<IProductQueryService,ProductQueryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

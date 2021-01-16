@@ -2,7 +2,7 @@
 
 namespace ProductManagement.Service
 {
-    public interface IProductCommandService
+    public interface IProductQueryService
     {
         Product GetProduct();
     }
