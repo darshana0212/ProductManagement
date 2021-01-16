@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Api", "ProductManagement.Api\ProductManagement.Api.csproj", "{E9029239-8BD4-40C0-AEB5-30F47E0C4A81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Data", "ProductManagement.Domain\ProductManagement.Data.csproj", "{30F4D515-5960-410F-A6B1-8478575AFB90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Data", "ProductManagement.Data\ProductManagement.Data.csproj", "{30F4D515-5960-410F-A6B1-8478575AFB90}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Service", "ProductManagement.Services\ProductManagement.Service.csproj", "{29445965-C6FC-4DEC-9AB4-7A54E8455AB3}"
 EndProject
