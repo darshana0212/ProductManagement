@@ -49,5 +49,25 @@ namespace ProductManagement.Service
                 throw;
             }
         }
+
+        public void DeleteProduct(int id)
+        {
+            try
+            {
+                Product existingProduct = _productRepository.GetProduct(id);
+
+                if (existingProduct == null)
+                {
+                    throw new Exception($"Product with Id {id} not found");
+                }
+
+                _productRepository.Delete(existingProduct);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while deleting Product");
+                throw;
+            }
+        }
     }
 }

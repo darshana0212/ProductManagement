@@ -40,5 +40,12 @@ namespace ProductManagement.Api.Controllers
             _productCommandService.UpdateProduct(product);
             return Ok();
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteProduct([FromRoute] int id)
+        {
+            _productCommandService.DeleteProduct(id);
+            return Ok();
+        }
     }
 }

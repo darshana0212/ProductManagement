@@ -35,5 +35,11 @@ namespace ProductManagement.Data.Repository
         {
             return _productContext.SaveChanges();
         }
+
+        public void Delete(Product existingProduct)
+        {
+            _productContext.Products.Remove(existingProduct);
+            SaveChanges();
+        }
     }
 }

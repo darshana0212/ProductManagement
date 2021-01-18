@@ -9,5 +9,7 @@
         int AddProductOption(ProductOption productOption);
 
         int SaveChanges();
+
+        void Delete(Product existingProduct);
     }
 }

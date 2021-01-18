@@ -9,5 +9,7 @@ namespace ProductManagement.Service
         int SaveProductOption(ProductOption productOption);
 
         void UpdateProduct(Product product);
+
+        void DeleteProduct(int id);
     }
 }
