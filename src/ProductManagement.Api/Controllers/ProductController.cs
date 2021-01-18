@@ -23,6 +23,12 @@ namespace ProductManagement.Api.Controllers
            return Ok(_productQueryService.GetProduct(id));            
         }
 
+        [HttpGet()]
+        public IActionResult GetProducts()
+        {
+            return Ok(_productQueryService.GetProducts());
+        }
+
         [HttpPost]
         public IActionResult AddProduct([FromBody] Product product)
         {

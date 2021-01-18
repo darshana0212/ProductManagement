@@ -1,4 +1,5 @@
 ﻿using ProductManagement.Data;
+using System.Collections.Generic;
 
 namespace ProductManagement.Service
 {
@@ -6,5 +7,6 @@ namespace ProductManagement.Service
     {
         Product GetProduct(int id);
 
+        List<Product> GetProducts();
     }
 }

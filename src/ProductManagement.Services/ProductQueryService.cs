@@ -1,5 +1,6 @@
 ﻿using ProductManagement.Data;
 using ProductManagement.Data.Repository;
+using System.Collections.Generic;
 
 namespace ProductManagement.Service
 {
@@ -15,6 +16,11 @@ namespace ProductManagement.Service
         public Product GetProduct(int id)
         {
             return _productRepository.GetProduct(id);
+        }
+
+        public List<Product> GetProducts()
+        {
+            return _productRepository.GetAllProducts();
         }
     }
 }
