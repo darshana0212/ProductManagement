@@ -24,5 +24,11 @@ namespace ProductManagement.Data.Repository
            return _productContext.Products.Find(id);
            
         }
+
+        public int AddProductOption(ProductOption productOption)
+        {
+            _productContext.Add(productOption);
+            return _productContext.SaveChanges();
+        }
     }
 }

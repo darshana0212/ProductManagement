@@ -8,5 +8,7 @@ namespace ProductManagement.Service
     public interface IProductCommandService
     {
         int SaveProduct(Product product);
+
+        int SaveProductOption(ProductOption productOption);
     }
 }

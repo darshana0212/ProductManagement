@@ -18,5 +18,10 @@ namespace ProductManagement.Service
             return _productRepository.AddProduct(product);
         }
 
+        public int SaveProductOption(ProductOption productOption)
+        {
+            return _productRepository.AddProductOption(productOption);
+        }
+
     }
 }
