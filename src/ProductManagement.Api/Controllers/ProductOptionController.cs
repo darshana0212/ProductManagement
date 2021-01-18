@@ -17,16 +17,16 @@ namespace ProductManagement.Api.Controllers
             _productQueryService = productQueryService;
         }
 
+        [HttpGet]
+        public IActionResult GetProductOptionsByProductId([FromQuery] int productId)
+        {
+            return Ok(_productQueryService.GetProductOptionsByProductId(productId));
+        }
+
         [HttpPost]
         public IActionResult AddProductOption([FromBody] ProductOption productOption)
         {
             return Ok(_productCommandService.SaveProductOption(productOption));
-        }
-
-        [HttpGet]
-        public IActionResult GetProductOptionById([FromQuery] int productId)
-        {
-            return Ok(_productQueryService.GetProductOptionsByProductId(productId));
         }
 
         [HttpPut("{optionId}")]
