@@ -7,5 +7,7 @@
         Product GetProduct(int id);
 
         int AddProductOption(ProductOption productOption);
+
+        int SaveChanges();
     }
 }

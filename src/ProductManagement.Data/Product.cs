@@ -8,7 +8,7 @@ namespace ProductManagement.Data
     public class Product
     {        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage ="Please enter valid code.")]
         public string Code { get; set; }

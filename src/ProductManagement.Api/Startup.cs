@@ -25,11 +25,10 @@ namespace ProductManagement.Api
         {
             services.AddControllers();
             AddSwagger(services);
-            services.AddDbContext<ProductContext>(options => options.UseSqlServer("Data Source=localhost;Initial Catalog=ProductManagement;User Id=sa;Password=sa;"));
+            services.AddDbContext<ProductContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductManagement")));
             services.AddScoped<IProductQueryService,ProductQueryService>();
             services.AddScoped<IProductCommandService, ProductCommandService>();
             services.AddScoped<IProductRepository, ProductRepository>();
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

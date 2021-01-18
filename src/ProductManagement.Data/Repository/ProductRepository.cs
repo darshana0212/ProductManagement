@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ProductManagement.Data.Repository
@@ -16,18 +17,22 @@ namespace ProductManagement.Data.Repository
         public int AddProduct(Product product)
         {
             _productContext.Add(product);
-            return _productContext.SaveChanges();
+            return SaveChanges();
         }
 
         public Product GetProduct(int id)
         {
-           return _productContext.Products.Find(id);
-           
+           return _productContext.Products.FirstOrDefault(x => x.Id == id);  
         }
 
         public int AddProductOption(ProductOption productOption)
         {
             _productContext.Add(productOption);
+            return _productContext.SaveChanges();
+        }
+
+        public int SaveChanges()
+        {
             return _productContext.SaveChanges();
         }
     }

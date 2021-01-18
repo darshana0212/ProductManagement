@@ -6,6 +6,7 @@ namespace ProductManagement.Service
     public class ProductQueryService : IProductQueryService
     {
         private readonly IProductRepository _productRepository;
+
         public ProductQueryService(IProductRepository productRepository)
         {
             _productRepository = productRepository;
@@ -15,6 +16,5 @@ namespace ProductManagement.Service
         {
             return _productRepository.GetProduct(id);
         }
-
     }
 }

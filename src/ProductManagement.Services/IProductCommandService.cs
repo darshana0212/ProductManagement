@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ProductManagement.Data;
+﻿using ProductManagement.Data;
 
 namespace ProductManagement.Service
 {
@@ -10,5 +7,7 @@ namespace ProductManagement.Service
         int SaveProduct(Product product);
 
         int SaveProductOption(ProductOption productOption);
+
+        void UpdateProduct(Product product);
     }
 }

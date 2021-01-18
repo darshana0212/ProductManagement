@@ -18,16 +18,27 @@ namespace ProductManagement.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetData([FromRoute] int id)
+        public IActionResult GetProductById([FromRoute] int id)
         {
            return Ok(_productQueryService.GetProduct(id));            
         }
-
 
         [HttpPost]
         public IActionResult AddProduct([FromBody] Product product)
         {
            return Ok(_productCommandService.SaveProduct(product));
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateProduct([FromRoute] int id, [FromBody] Product product)
+        {
+            if (product.Id != id)
+            {
+                return BadRequest("Product Id is invalid");
+            }
+
+            _productCommandService.UpdateProduct(product);
+            return Ok();
         }
     }
 }
