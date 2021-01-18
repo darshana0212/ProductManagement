@@ -11,5 +11,11 @@ namespace ProductManagement.Service
         void UpdateProduct(Product product);
 
         void DeleteProduct(int id);
+
+        void UpdateProductOption(ProductOption productOption);
+
+        void DeleteProductOption(int optionId);
+
+        void DeleteProductOptionsByProductId(int productId);
     }
 }

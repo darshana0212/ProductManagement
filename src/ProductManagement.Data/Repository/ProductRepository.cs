@@ -49,5 +49,27 @@ namespace ProductManagement.Data.Repository
                 .Include(x => x.ProductOptions)
                 .ToList();
         }
+
+        public List<ProductOption> GetProductOptionsByProductId(int productId)
+        {
+            return _productContext.ProductOptions.Where(x => x.ProductId == productId).ToList();
+        }
+
+        public ProductOption GetProductOptionById(int productOptionId)
+        {
+            return _productContext.ProductOptions.FirstOrDefault(x => x.Id == productOptionId);
+        }
+
+        public void DeleteProductOption(ProductOption existingProductOption)
+        {
+            _productContext.ProductOptions.Remove(existingProductOption);
+            SaveChanges();
+        }
+
+        public void DeleteProductOptions(List<ProductOption> existingProductOptions)
+        {
+            _productContext.ProductOptions.RemoveRange(existingProductOptions);
+            SaveChanges();
+        }
     }
 }

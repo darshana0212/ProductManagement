@@ -18,9 +18,16 @@ namespace ProductManagement.Service
             return _productRepository.GetProduct(id);
         }
 
+        public List<ProductOption> GetProductOptionsByProductId(int productId)
+        {
+            return _productRepository.GetProductOptionsByProductId(productId);
+        }
+
         public List<Product> GetProducts()
         {
             return _productRepository.GetAllProducts();
         }
+
+
     }
 }

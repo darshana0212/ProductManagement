@@ -15,5 +15,13 @@ namespace ProductManagement.Data.Repository
         void Delete(Product existingProduct);
 
         List<Product> GetAllProducts();
+
+        List<ProductOption> GetProductOptionsByProductId(int productId);
+
+        ProductOption GetProductOptionById(int productOptionId);
+
+        void DeleteProductOption(ProductOption productOption);
+
+        void DeleteProductOptions(List<ProductOption> existingProductOptions);
     }
 }

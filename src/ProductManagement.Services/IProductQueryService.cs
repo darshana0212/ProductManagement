@@ -8,5 +8,7 @@ namespace ProductManagement.Service
         Product GetProduct(int id);
 
         List<Product> GetProducts();
+
+        List<ProductOption> GetProductOptionsByProductId(int productId);
     }
 }
