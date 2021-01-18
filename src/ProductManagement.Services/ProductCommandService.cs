@@ -12,11 +12,13 @@ namespace ProductManagement.Service
     {
         private readonly ILogger<ProductCommandService> _logger;
         private readonly IProductRepository _productRepository;
+
         public ProductCommandService(IProductRepository productRepository, ILogger<ProductCommandService> logger)
         {
             _productRepository = productRepository;
             _logger = logger;
         }
+
         public int SaveProduct(Product product)
         {
             try
