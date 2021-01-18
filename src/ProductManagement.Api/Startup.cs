@@ -57,8 +57,9 @@ namespace ProductManagement.Api
             {
                 endpoints.MapControllers();
             });
+            
+            MigrateDatabase(app);
         }
-
 
         private IServiceCollection AddSwagger(IServiceCollection services)
         {
@@ -82,6 +83,13 @@ namespace ProductManagement.Api
              });
 
             return services;
+        }
+
+        private void MigrateDatabase(IApplicationBuilder applicationBuilder)
+        {
+            using var serviceScope = applicationBuilder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+            using var context = serviceScope.ServiceProvider.GetService<ProductContext>();
+            context.Database.Migrate();
         }
     }
 }
