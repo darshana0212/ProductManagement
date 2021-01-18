@@ -18,6 +18,10 @@ namespace ProductManagement.Data
                 .HasIndex(p => p.Code)
                 .IsUnique();
 
+            builder.Entity<Product>()
+                .Property(x => x.Price)
+                .HasPrecision(18, 2);
+
             builder.Entity<ProductOption>()
                 .HasIndex(p => p.Code)
                 .IsUnique();
