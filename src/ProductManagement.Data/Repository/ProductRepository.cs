@@ -17,19 +17,31 @@ namespace ProductManagement.Data.Repository
 
         public int AddProduct(Product product)
         {
+            product.Id = 0;
+
+            if (product.ProductOptions != null && product.ProductOptions.Any())
+            {
+                product.ProductOptions.ForEach(x => { x.Id = 0; });
+            }
+
             _productContext.Add(product);
-            return SaveChanges();
+            SaveChanges();
+            return product.Id;
         }
 
         public Product GetProduct(int id)
         {
-           return _productContext.Products.FirstOrDefault(x => x.Id == id);  
+            return _productContext.Products
+                 .Include(x => x.ProductOptions)
+                 .FirstOrDefault(x => x.Id == id);
         }
 
         public int AddProductOption(ProductOption productOption)
         {
+            productOption.Id = 0;
             _productContext.Add(productOption);
-            return _productContext.SaveChanges();
+            _productContext.SaveChanges();
+            return productOption.Id;
         }
 
         public int SaveChanges()
